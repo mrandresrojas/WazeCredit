@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WazeCredit.Data;
 using WazeCredit.Service;
+using WazeCredit.Utility.DI_Config;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 builder.Services.AddTransient<IMarketForecaster, MarketForecaster>();
+builder.Services.AddAppSettingsConfig(builder.Configuration);
 
 var app = builder.Build();
 
